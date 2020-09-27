@@ -20,19 +20,20 @@ class MainActivity : AppCompatActivity() {
                 when (model.type) {
                     //view_holder_header (layout file) = "header" this is because of data binding
                     "Header" -> header {
-                        id(position)
+                        id(model.id)
                         headerName("Pos:$position ${model.content}")
                     }
                     "Content" -> content {
-                        id(position)
+                        id(model.id)
                         sampleModelVariable(model)
                         onClickContent { _ ->
-                            Toast.makeText(this@MainActivity, model.content, Toast.LENGTH_SHORT)
+                            Toast.makeText(this@MainActivity,
+                                model.content, Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
                     "Footer" -> footer {
-                        id(position)
+                        id(model.id)
                         footerName("Pos:$position ${model.content}")
                     }
                 }
